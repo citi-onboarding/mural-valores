@@ -1,70 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, Button, Icon, ContentWrapper } from './style';
+import { ButtonWrapper, ButtonInput, ButtonLabel } from './style';
 
-const ButtonComponent = ({
-  text,
-  iconSVG,
-  size,
-  buttonColor,
-  reversed,
-  color,
-  boxShadow,
-  border,
-  disabled,
-  onClick,
-}) => {
+const Button = ({ name, label, switchValue }) => {
   return (
-    <Button
-      iconSVG={iconSVG}
-      size={size}
-      buttonColor={buttonColor}
-      boxShadow={boxShadow}
-      border={border}
-      reversed={reversed}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      <ContentWrapper reversed={reversed}>
-        {iconSVG && (
-          <Icon color={color} size={size}>
-            {iconSVG}
-          </Icon>
-        )}
-        {text && (
-          <Text size={size} textColor={color} text={text}>
-            {text}
-          </Text>
-        )}
-      </ContentWrapper>
-    </Button>
+    <ButtonWrapper>
+      <ButtonInput
+        type='checkbox'
+        id={name}
+        name={name}
+        onClick={() => switchValue()}
+      />
+      <ButtonLabel htmlFor={name}>{label}</ButtonLabel>
+    </ButtonWrapper>
   );
 };
 
-ButtonComponent.propTypes = {
-  text: PropTypes.string,
-  iconSVG: PropTypes.element,
-  size: PropTypes.oneOf(['large', 'medium', 'small', 'fit']),
-  buttonColor: PropTypes.oneOf(['white', 'green', 'lightGreen', 'orange']),
-  color: PropTypes.oneOf(['white', 'black', 'green']),
-  reversed: PropTypes.bool,
-  boxShadow: PropTypes.bool,
-  border: PropTypes.bool,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
+Button.propTypes = {
+  name: PropTypes.string,
+  label: PropTypes.string,
+  switchValue: PropTypes.func,
 };
 
-ButtonComponent.defaultProps = {
-  text: '',
-  iconSVG: null,
-  size: '',
-  buttonColor: '',
-  reversed: false,
-  color: '',
-  boxShadow: false,
-  border: false,
-  disabled: false,
-  onClick: () => {},
-};
-
-export default ButtonComponent;
+export default Button;
