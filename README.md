@@ -51,11 +51,7 @@ Then, you can see the application running at [http://localhost:3000](http://loca
 ### 1st team
 * **Daniel França** - *Front-end/Back-end/Devops* - [DanielFrancaContaGit](https://github.com/DanielFrancaContaGit)
 * **Eduardo Almeida** - *Project manager* - [eduqz](https://github.com/eduqz)
-* **Ricardo Morato Rocha** - *Front-end/Back-end/Devops* - [RicardoMorato](https://github.com/RicardoMorato)
-
-### 2nd team
-* **Eduardo Almeida** - *Project manager* - [eduqz](https://github.com/eduqz)
-* **Deborah Espíndola** - *Front-end* - [debespindola](https://github.com/debespindola)
+* **Edgar** - *Front-end/Back-end/Devops* - [Edgar](https://github.com/Jorrmungandr)
 * **Isaque Diniz** - *Front-end/Back-end* - [isaquetdiniz](https://github.com/isaquetdiniz)
 * **Vinicius Scala** - *Front-end/Back-end* - [viniciusscala](https://github.com/viniciusscala)
 
