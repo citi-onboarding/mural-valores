@@ -41,4 +41,30 @@ const ButtonComponent = ({
   );
 };
 
+ButtonComponent.propTypes = {
+  text: PropTypes.string,
+  iconSVG: PropTypes.element,
+  size: PropTypes.oneOf(['large', 'medium', 'small', 'fit']),
+  buttonColor: PropTypes.oneOf(['white', 'green', 'lightGreen', 'orange']),
+  color: PropTypes.oneOf(['white', 'black', 'green']),
+  reversed: PropTypes.bool,
+  boxShadow: PropTypes.bool,
+  border: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+};
+
+ButtonComponent.defaultProps = {
+  text: '',
+  iconSVG: null,
+  size: '',
+  buttonColor: '',
+  reversed: false,
+  color: '',
+  boxShadow: false,
+  border: false,
+  disabled: false,
+  onClick: () => {},
+};
+
 export default ButtonComponent;
