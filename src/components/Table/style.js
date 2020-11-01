@@ -26,7 +26,7 @@ const TableElement = styled.table`
 
 // styles for the line
 const Tr = styled.tr`
-  margin: 0;
+  margin: 0 1rem;
   padding: 0;
   border-bottom: 0.1875rem solid rgb(219, 219, 219);
 
@@ -136,7 +136,7 @@ const Td = styled.td`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-left: 1.15625rem;
+    margin-left: 1.25rem;
   }
 
   &:last-child {
@@ -144,7 +144,7 @@ const Td = styled.td`
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: center;
-    margin-left: -0.8px;
+    margin-left: -0.05rem;
 
     & button {
       background-color: white;
@@ -154,7 +154,8 @@ const Td = styled.td`
       outline: none;
       height: 1.875rem;
       width: 6.125rem;
-      font: ${Theme.font.subtitle};
+      font-family: sans-serif;
+      font-size: 1.5rem;
       cursor: pointer;
       transition: 0.1s;
 
