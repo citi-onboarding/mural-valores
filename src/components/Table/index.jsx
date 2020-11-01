@@ -12,14 +12,13 @@ import {
   Td,
 } from './style';
 
-function Table(props) {
+function Table({header, data, onChange}) {
   const [referenceColumn, setReferenceColumn] = React.useState(-1);
   const [headerCount, setHeaderCount] = React.useState(
-    props.header.map(() => {
+    header.map(() => {
       return 0;
     }),
   );
-  // const [tableData, setTableData] = React.useState(props.data);
 
   // function that checks if the td is the last one in the row so it can add the button
   function returnTds(element2, index2, length, index) {
@@ -27,17 +26,18 @@ function Table(props) {
       return (
         <Td key={index2}>
           <p>{element2}</p>
-          <button onClick={props.data[index].action}>Detalhes</button>
+          <button onClick={data[index].action}>Detalhes</button>
         </Td>
       );
     }
-    return <Td key={index2}>{element2}</Td>;
+    
+    return <Td key={index2 + 1}>{element2}</Td>;
   }
 
   // function that handles the click in the sort button
   function handleClick(index) {
     setReferenceColumn(index);
-    let arrayAux = props.data;
+    let arrayAux = data;
     let hasNan = false;
     const headerCountAux = headerCount;
     headerCountAux[index] += 1;
@@ -114,7 +114,7 @@ function Table(props) {
       return 0;
     });
 
-    props.onChange([...arrayAux]);
+    onChange([...arrayAux]);
   }
 
   return (
@@ -122,9 +122,9 @@ function Table(props) {
       <TableElement>
         <THead>
           <Tr>
-            {props.header.map((element, index) => {
+            {header.map((element, index) => {
               return (
-                <Th key={index}>
+                <Th key={index + 1}>
                   <div>
                     <div>
                       <p>{element}</p>
@@ -132,9 +132,9 @@ function Table(props) {
                         index={index}
                         clicks={headerCount}
                         referenceColumn={referenceColumn}
-                        onClick={() => {
-                          handleClick(index);
-                        }}
+                        onClick={() =>
+                          handleClick(index)
+                        }
                       >
                         <Arrow />
                       </SortButton>
@@ -146,13 +146,13 @@ function Table(props) {
           </Tr>
         </THead>
         <TBody>
-          {props.data.map((element, index) => {
+          {data.map((element, index) => {
             return (
               <Tr key={index}>
-                {element.data.map((element2, index2) => {
+                {element.data.map((childElement, childIndex) => {
                   return returnTds(
-                    element2,
-                    index2,
+                    childElement,
+                    childIndex,
                     element.data.length,
                     index,
                   );
@@ -161,7 +161,7 @@ function Table(props) {
             );
           })}
           <Tr>
-            {props.header.map((element, index) => {
+            {header.map((element, index) => {
               return <Td key={index}></Td>;
             })}
           </Tr>
